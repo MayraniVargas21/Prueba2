@@ -80,7 +80,7 @@ class ProductoController extends Controller
        $producto->stock = $request->stocku;
        $producto->total = $request->stocku * $request->preciou;
        $producto->save();
-       return redirect('/producto');
+       
     }
 
     /**

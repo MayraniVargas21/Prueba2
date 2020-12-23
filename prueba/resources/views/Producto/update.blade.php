@@ -8,7 +8,7 @@
                     <h3>Modificar</h3>
                 </div>
             
-                <form role="modal" action ="/producto/" id="editarp" method="POST">
+                <form role="modal" action ="/producto/" id="editarp">
                     @csrf
                     @method('PUT')
 
