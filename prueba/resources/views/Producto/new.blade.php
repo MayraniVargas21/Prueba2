@@ -46,8 +46,7 @@
 </div>
 
 <script>
-$(document).ready(function(){
-    
+$(document).ready(function(){ 
 	$("input[name=precio]").change(function(){  
         $("input[name=stock]").change(function(){
             var precio =$("input[name=precio]").val(); 

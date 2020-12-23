@@ -62,7 +62,7 @@ class ProductoController extends Controller
      */
     public function edit($id)
     {
-        //
+        dd($id);
     }
 
     /**
@@ -74,7 +74,13 @@ class ProductoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $producto = Producto::find($id);
+       $producto ->nombre = $request->nombre;
+       $producto->precio = $request->preciou;
+       $producto->stock = $request->stocku;
+       $producto->total = $request->stocku * $request->preciou;
+       $producto->save();
+       return redirect('/producto');
     }
 
     /**
