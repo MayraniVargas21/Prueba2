@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Producto;
+use App\Models\Producto;
+use Illuminate\Support\Facades\DB;
 
 class ProductoController extends Controller
 {
@@ -15,8 +16,8 @@ class ProductoController extends Controller
     public function index()
     {
         //
-        $productos = Producto::all();
-        return view('Producto.index', compact('productos'));
+        $producto = Producto::all();
+        return view('Producto.index',['producto'=>$producto]);
     }
 
     /**
