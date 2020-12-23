@@ -91,6 +91,12 @@ class ProductoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $producto = Producto::find($id);
+        if($producto->stock == 0) {
+            $producto->delete();
+        } else {
+            return redirect()->route('producto.index')->with('status','No se puede eliminar, aun hay stock');
+        }
+        return redirect('/producto');
     }
 }

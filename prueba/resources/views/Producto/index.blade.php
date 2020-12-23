@@ -62,9 +62,12 @@
                     </a>
                 </td>
                 <td>
-                    <a href ="#" class="btn btn-circle btn-sm btn-danger"  data-toggle="modal" data-target="#delete" id="deletebtn" title="Eliminar producto">
-                        <i class="fas fa-trash"></i>
-                    </a>
+                <form action="{{action('ProductoController@destroy', $product->id)}}" method="POST">
+                   @csrf
+                   @method('DELETE')
+                   <button class="btn btn-circle btn-sm btn-danger" type="submit"><i class="fas fa-trash"></i></button>
+                  
+                 </form>
                 </td>
             </tr>
             @endforeach
