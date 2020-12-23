@@ -16,7 +16,7 @@ class ProductoController extends Controller
     public function index()
     {
         //
-        $producto = Producto::all();
+        $producto = Producto::paginate(15);
         return view('Producto.index',['producto'=>$producto]);
     }
 
@@ -38,7 +38,9 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[ 'nombre'=>'required', 'precio'=>'required', 'stock'=>'required']);
+        Producto::create($request->all());
+        return redirect()->route('producto.index')->with('success','Se registró producto satisfactoriamente');
     }
 
     /**
